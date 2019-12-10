@@ -1,0 +1,2 @@
+# py-tasks
+django app
