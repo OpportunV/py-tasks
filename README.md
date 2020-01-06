@@ -1,2 +1,2 @@
 # py-tasks
-django app
+django project

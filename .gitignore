@@ -1,6 +1,7 @@
 # my ignore
 .idea/
-settings.py
+settings.py/
+migrations/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
