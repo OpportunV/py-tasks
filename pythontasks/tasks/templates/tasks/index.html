@@ -6,7 +6,7 @@
       <div class="media-body">
         <div class="article-metadata">
           <a class="mr-2" href="#">{{ task.author }}</a>
-          <small class="text-muted">{{ task.created }}</small>
+          <small class="text-muted">{{ task.created|date:'d F Y G:i' }}</small>
         </div>
         <h2><a class="article-title" href="#">{{ task.title }}</a></h2>
         <p class="article-content">{{ task.content }}</p>
