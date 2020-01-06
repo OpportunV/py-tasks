@@ -1,5 +1,6 @@
 # my ignore
 .idea/
+.vscode/
 settings.py/
 migrations/
 
