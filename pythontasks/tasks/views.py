@@ -1,25 +1,11 @@
 from django.shortcuts import render
-
-
-tmp_tasks = [
-    {
-        'author': 'first',
-        'title': 'title1',
-        'content': 'content1',
-        'date': 'Jan 2, 2020'
-    },
-    {
-        'author': 'first',
-        'title': 'title2',
-        'content': 'content2',
-        'date': 'Jan 3, 2020'
-    },
-]
+from .models import Task
 
 
 def index(request):
+    tasks = Task.objects.all()
     content = {
-        'tasks': tmp_tasks
+        'tasks': tasks
     }
     return render(request, 'tasks/index.html', content)
 
