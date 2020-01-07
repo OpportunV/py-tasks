@@ -1,7 +1,7 @@
 # my ignore
 .idea/
 .vscode/
-settings.py/
+settings.py
 migrations/
 
 # Byte-compiled / optimized / DLL files

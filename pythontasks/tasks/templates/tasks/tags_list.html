@@ -1,0 +1,16 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+  <h2 class="mb-5">Tags: </h2>
+  {% for cur_tag in tags_list %}
+    <h3>{{ cur_tag.title }}</h3>
+<!--    <article class="media content-section">-->
+<!--      <div class="media-body">-->
+<!--        <h2><a class="article-title" href="{{ cur_tag.get_absolute_url }}">{{ cur_tag.title }}</a></h2>-->
+<!--        {% for task in cur_tag.tasks %}-->
+<!--          <a class="article-content" href="{{ task.get_absolute_url }}">{{ task.title }}</a>-->
+<!--        {% endfor %}-->
+<!--      </div>-->
+<!--    </article>-->
+  {% endfor %}
+{% endblock %}
