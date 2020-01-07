@@ -9,6 +9,7 @@ def index(request):
         'title': 'Tasks',
         'tasks': tasks,
     }
+    print(request.user.groups.all())
     return render(request, 'tasks/index.html', content)
 
 
