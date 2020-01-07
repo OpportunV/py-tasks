@@ -130,3 +130,7 @@ STATICFILES_DIRS = [
 
 # crispy forms css framework settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# login redirection
+LOGIN_REDIRECT_URL = 'tasks-index'
+LOGIN_URL = 'login'
