@@ -7,6 +7,7 @@ from django.utils import timezone
 class Task(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    solution = models.TextField(blank=True)
     created = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     tags = models.ManyToManyField('Tag', blank=True, related_name='tasks')

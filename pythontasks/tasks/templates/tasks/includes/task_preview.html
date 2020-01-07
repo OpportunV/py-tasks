@@ -1,6 +1,6 @@
 <article class="media content-section">
   <div class="media-body">
-    <h2><a class="article-title" href="#">{{ task.title }}</a></h2>
+    <h2><a class="article-title" href="{{ task.get_absolute_url }}">{{ task.title }}</a></h2>
     <p class="article-content">{{ task.content|truncatewords:30 }}</p>
     <div class="article-metadata">
       <a class="mr-2" href="#">{{ task.author }}</a>

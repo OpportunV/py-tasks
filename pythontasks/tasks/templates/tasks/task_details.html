@@ -8,7 +8,14 @@
       <div class="article-metadata">
         <a class="mr-2" href="#">{{ task.author }}</a>
         <small class="text-muted">{{ task.created|date:'d F Y G:i' }}</small>
+        <div class="text-muted text-right">
+          {% for tag in task.tags.all %}
+          <a href="{{ tag.get_absolute_url }}">[{{ tag.title }}]</a>
+          {% endfor %}
+        </div>
       </div>
+
     </div>
+
   </article>
 {% endblock %}
