@@ -2,15 +2,6 @@
 
 {% block content %}
   {% for task in tasks %}
-    <article class="media content-section">
-      <div class="media-body">
-        <h2><a class="article-title" href="{{ task.get_absolute_url }}">{{ task.title }}</a></h2>
-        <p class="article-content">{{ task.content }}</p>
-        <div class="article-metadata">
-          <a class="mr-2" href="#">{{ task.author }}</a>
-          <small class="text-muted">{{ task.created|date:'d F Y G:i' }}</small>
-        </div>
-      </div>
-    </article>
+    {% include 'tasks/includes/task_preview.html' %}
   {% endfor %}
 {% endblock %}

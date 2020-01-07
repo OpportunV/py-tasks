@@ -1,0 +1,10 @@
+<article class="media content-section">
+  <div class="media-body">
+    <h2><a class="article-title" href="#">{{ task.title }}</a></h2>
+    <p class="article-content">{{ task.content|truncatewords:30 }}</p>
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ task.author }}</a>
+      <small class="text-muted">{{ task.created|date:'d F Y G:i' }}</small>
+    </div>
+  </div>
+</article>

@@ -21,8 +21,8 @@ class Task(models.Model):
 class Tag(models.Model):
     title = models.CharField(max_length=50)
     
-    # def get_absolute_url(self):
-    #     return reverse('tasks-tag_details', kwargs={'id_': self.id})
+    def get_absolute_url(self):
+        return reverse('tasks-tag_details', kwargs={'id_': self.id})
 
     def __str__(self):
         return self.title
