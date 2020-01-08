@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.shortcuts import reverse
 from django.utils import timezone
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Task(models.Model):
@@ -32,6 +33,9 @@ class Solution(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    score = models.SmallIntegerField(default=0,
+                                     validators=[MinValueValidator(0),
+                                                 MaxValueValidator(5)])
 
     def __str__(self):
         return f'Solution for {self.task.title} by {self.author.username}'

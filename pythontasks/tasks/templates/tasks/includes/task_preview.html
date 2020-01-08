@@ -5,7 +5,7 @@
     <p class="article-content">{{ task.content|truncatewords:30 }}</p>
     {% if user|has_group:'Admin' %}
     <div class="article-metadata">
-      <a class="mr-2" href="#">{{ task.author }}</a>
+      <a class="mr-2" href="{{ task.author.profile.get_absolute_url }}">{{ task.author }}</a>
       <small class="text-muted">{{ task.created|date:'d F Y G:i' }}</small>
     </div>
     {% endif %}

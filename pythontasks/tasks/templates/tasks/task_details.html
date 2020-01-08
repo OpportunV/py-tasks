@@ -8,7 +8,7 @@
       <p class="article-content">{{ task.content }}</p>
       <div class="article-metadata">
         {% if user|has_group:'Admin' %}
-        <a class="mr-2" href="#">{{ task.author }}</a>
+        <a class="mr-2" href="{{ task.author.profile.get_absolute_url }}">{{ task.author }}</a>
         <small class="text-muted">{{ task.created|date:'d F Y G:i' }}</small>
         {% endif %}
         <div class="text-muted text-right">
@@ -22,8 +22,13 @@
   {% for solution in solutions %}
     <article class="media content-section">
       <div class="media-body">
-        <h2 class="article-title">Your Solution</h2>
+        {% if user|has_group:'Admin' %}
+            <h2 class="article-title">Solution by <a href="{{ solution.author.profile.get_absolute_url }}">{{ solution.author.username }}</a></h2>
+        {% else %}
+          <h2 class="article-title">Your Solution</h2>
+        {% endif %}
         <p class="article-content">{{ solution.content }}</p>
+        <div class="article-content text-right display-4"><mark class="bg-success pb-0 pt-0 ">{{solution.score}}</mark></div>
       </div>
     </article>
   {% endfor %}

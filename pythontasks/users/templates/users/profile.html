@@ -1,14 +1,31 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load extra_tags %}
 {% block content %}
-  <h1 class="text-center">{{ user.username }}</h1>
+  <h1 class="text-center">{{ target_user.username }}</h1>
   <article class="media content-section">
     <div class="media-body">
       <h4 class="text-center">Tasks</h4>
       <div class="list-group">
-        {% for task in user.profile.tasks.all %}
+        {% for task in target_user.profile.tasks.all %}
             <a class="list-group-item list-group-item-action text-center" href="{{ task.get_absolute_url }}">{{ task.title }}</a>
         {% endfor %}
       </div>
     </div>
   </article>
+  {% if user|has_group:'Admin' %}
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Edit Profile</legend>
+          {{ u_form|crispy }}
+          {{ p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  {% endif %}
 {% endblock %}
