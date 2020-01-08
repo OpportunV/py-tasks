@@ -9,7 +9,6 @@ def index(request):
         'title': 'Tasks',
         'tasks': tasks,
     }
-    print(request.user.groups.all())
     return render(request, 'tasks/index.html', content)
 
 
@@ -22,9 +21,14 @@ def about(request):
 
 def task_details(request, id_):
     task = Task.objects.get(id=id_)
+    if 'Admin' in [group.name for group in request.user.groups.all()]:
+        solutions = task.solution_set.all()
+    else:
+        solutions = task.solution_set.filter(author=request.user).all()
     content = {
         'title': task.title,
         'task': task,
+        'solutions': solutions,
     }
     return render(request, 'tasks/task_details.html', content)
 

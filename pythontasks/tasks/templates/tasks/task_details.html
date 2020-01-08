@@ -4,7 +4,7 @@
 {% block content %}
   <article class="media content-section">
     <div class="media-body">
-      <h2><a class="article-title" href="#">{{ task.title }}</a></h2>
+      <h2 class="article-title">{{ task.title }}</h2>
       <p class="article-content">{{ task.content }}</p>
       <div class="article-metadata">
         {% if user|has_group:'Admin' %}
@@ -17,8 +17,14 @@
           {% endfor %}
         </div>
       </div>
-
     </div>
-
   </article>
+  {% for solution in solutions %}
+    <article class="media content-section">
+      <div class="media-body">
+        <h2 class="article-title">Your Solution</h2>
+        <p class="article-content">{{ solution.content }}</p>
+      </div>
+    </article>
+  {% endfor %}
 {% endblock %}

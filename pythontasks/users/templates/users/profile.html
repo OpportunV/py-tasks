@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1 class="text-center">{{ user.username }}</h1>
+  <article class="media content-section">
+    <div class="media-body">
+      <h4 class="text-center">Tasks</h4>
+      <div class="list-group">
+        {% for task in user.profile.tasks.all %}
+            <a class="list-group-item list-group-item-action text-center" href="{{ task.get_absolute_url }}">{{ task.title }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </article>
 {% endblock %}
